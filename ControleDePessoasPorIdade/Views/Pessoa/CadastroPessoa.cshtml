@@ -1,0 +1,38 @@
+﻿@model List<PessoaModel>
+
+<h2>Cadastro de Pessoa</h2>
+
+<form action="/Pessoa/Create" method="post">
+    <label>Nome:</label>
+    <input type="text" name="Nome" required />
+    <label>Idade:</label>
+    <input type="number" name="Idade" required />
+    <label>Email:</label>
+    <input type="email" name="Email" required />
+    <button type="submit">Cadastrar</button> <br />
+</form>
+
+<br />
+<form action="/Pessoa/FiltrarPorIdade" method="post">
+    <button type="submit">Filtro 30+</button> <br />
+</form>
+
+<br />
+<h3>Lista de Pessoas</h3>
+<br />
+
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Email</th>
+    </tr>
+    @foreach (var pessoa in Model)
+    {
+        <tr>
+            <td>@pessoa.Nome</td>
+            <td>@pessoa.Idade</td>
+            <td>@pessoa.Email</td>
+        </tr>
+    }
+</table>
